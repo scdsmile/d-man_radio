@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- Мета-теги и заголовок -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>D-MAN Radio</title>
+
+    <!-- Подключение сторонних CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="/frontend/favicon.ico" type="image/x-icon">
+
+    <!-- Внутренние CSS стили -->
+    <style>
+         /* Общие стили для body и контейнеров */
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            background: #3d444f;
+            font-family: Arial, sans-serif;
+        }
+
+         .container {
+            width: 30%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            box-shadow: 0px 0px 30px 30px #23282f;
+            margin: 1px;
+            /* background: linear-gradient(150deg, #e9edef 0%, #575f6b 80%);*/
+	    background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            padding: 5px;
+
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            widht: auto;
+            height: 80%;
+        }
+
+         .player-container {
+           justify-content: center;
+           display: flex;
+           align-items: center;
+           height: 20%;
+         }
+
+         .canvas-container {
+           position: relative;
+        }
+
+         /* Стили для аудио-плеера */
+         input[type=range]::-webkit-slider-runnable-track {
+            height: 6px;
+            cursor: pointer;
+            animate: 0.1s;
+            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.3);
+            
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+	    border-radius: 3px;
+        }
+
+        /* Стилизование ползунка */
+        input[type=range]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fe9a8b;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -5px;
+            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+        }
+
+         audio {
+            display: none;
+        }
+
+
+         /* Стили для кнопок */
+         button:active {
+            transform: scale(0.95);
+        }
+
+         button {
+            border: 0;
+            border-radius: 50%;
+            box-shadow: 7px 7px 7px 0 rgba(0,0,0,0.3);
+            cursor: pointer;
+            outline: none;
+            font-size: 18px;
+            font-weight: bolder;
+            transition: transform 0.2s;
+         }
+
+         #playPauseButton {
+            width: 80px;
+            height: 80px;
+            color: #fff;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            margin: 10px;
+         }
+
+         #nextButton {
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            margin: 10px;
+         }
+
+         /* Cтили для мобильных устройств */
+
+         @media screen and (max-width: 1280px) {
+            .container {
+                padding: 5px;
+                margin: 10px;
+                width: 90%;
+               }
+
+            .image-container img {
+                width: 90%;
+                max-width: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .player-container {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+            }
+
+            #playPauseButton, #nextButton {
+
+                margin-bottom: 10px;
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+            }
+
+            input[type=range] {
+                width: 50%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+     <!-- Содержимое сайта -->
+     <div class="container">
+
+        <div class="image-container">
+            <img src="/media/images/d-man+d-logo.png" style="width:400px; height:auto;">
+        </div>
+        <div class="player-container">
+          <audio id="player" controls></audio>
+          <button id='playPauseButton'><i class="fas fa-play" id="playIcon"></i><i class="fas fa-pause" id="pauseIcon" style="display:none;"></i></button>
+          <button id='nextButton'><i class="fas fa-forward"></i></button>
+          <input type="range" min="0" max="1" step="0.01" id="volumeSlider" value="0.5">
+        </div>
+     </div>
+
+     <!-- Внешний JavaScript файл -->
+     <script src="/frontend/audio.js"></script>
+
+</body>
+</html>
