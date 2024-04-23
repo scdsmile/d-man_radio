@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | My project (3)</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">My project (3)</div>
+      </div>
+    </div>
+    <script>
+
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -29,15 +56,15 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "frontend/Build";
-      var loaderUrl = buildUrl + "/D-Game 0.loader.js";
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Dgame.loader.js";
       var config = {
-        dataUrl: buildUrl + "/D-Game 0.data.br",
-        frameworkUrl: buildUrl + "/D-Game 0.framework.js.br",
-        codeUrl: buildUrl + "/D-Game 0.wasm.br",
+        dataUrl: buildUrl + "/Dgame.data.br",
+        frameworkUrl: buildUrl + "/Dgame.framework.js.br",
+        codeUrl: buildUrl + "/Dgame.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "My project (2)",
+        productName: "My project (3)",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
@@ -89,3 +116,7 @@
             };
 
       document.body.appendChild(script);
+
+    </script>
+  </body>
+</html>
