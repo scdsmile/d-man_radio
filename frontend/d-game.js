@@ -1,3 +1,4 @@
+
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -29,15 +30,15 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "frontend/Build";
-      var loaderUrl = buildUrl + "/D-Game 0.loader.js";
+      var buildUrl = "/frontend/Build";
+      var loaderUrl = buildUrl + "/DgameWEB01B.loader.js";
       var config = {
-        dataUrl: buildUrl + "/D-Game 0.data.br",
-        frameworkUrl: buildUrl + "/D-Game 0.framework.js.br",
-        codeUrl: buildUrl + "/D-Game 0.wasm.br",
+        dataUrl: buildUrl + "/DgameWEB01B.data.br",
+        frameworkUrl: buildUrl + "/DgameWEB01B.framework.js.br",
+        codeUrl: buildUrl + "/DgameWEB01B.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "My project (2)",
+        productName: "D-Game",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };

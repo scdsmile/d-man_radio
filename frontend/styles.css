@@ -1,0 +1,312 @@
+/* Общие стили для body и контейнеров */
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;            
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+	    background: url('/backend/media/images/stars.png') repeat, black;
+	    background-size: 70%;
+            animation: animatedbody 500s linear infinite;
+	    
+         }
+
+         @keyframes animatedbody {
+           100% {
+             background-position: 10000px -10000px;
+           }
+         }
+
+	 .body-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 50px;
+  background: url(/backend/media/images/d-man.png);
+  background-size: 15%;
+  background-position: 0 0;
+  animation: animatedbg 100s linear infinite;
+}
+
+.body-bg1 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 50px;
+  background: url(/backend/media/images/D-man_original_1000x1000_canvas.png);
+  background-size: 15%;
+  background-position: 50px 50px;
+  animation: animatedbg 200s linear infinite;
+}
+
+.body-bg2 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 50px;
+  background: url(/backend/media/images/D-man_original_1300x1300_canvas.png);
+  background-size: 15%;
+  background-position: 100px 100px;
+  animation: animatedbg 300s linear infinite;
+}
+
+.body-bg3 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 50px;
+  background: url(/backend/media/images/D-man_original_600x600_canvas.png);
+  background-size: 15%;
+  background-position: 150px 150px;
+  animation: animatedbg 400s linear infinite;
+}
+
+.body-bg4 {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 50px;
+  background: url(/backend/media/images/D-man_original_1000x1000_canvas.png);
+  background-size: 15%;
+  background-position: 200px 200px;
+  animation: animatedbg 500s linear infinite;
+}
+
+          @keyframes animatedbg {
+           100% {
+             background-position: -10000px 10000px;
+           }
+         }
+
+         header {
+            display: flex;
+            justify-content: center; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background: transparent;
+         }
+
+         .radio-container {
+            width: 350px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: ceinter;
+            border-radius: 30px;
+            box-shadow: 0px 0px 20px 20px #23282f;
+            margin: 1px;
+            background: radial-gradient(circle closest-side, #f96247, #a80050, #04000d);
+            background-size: 150% 150%;
+            background-position: center center;
+            padding: 5px;
+            position: absolute;
+         }
+
+         #game-container {
+            width: 1060px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            box-shadow: 0px 0px 30px 30px #23282f;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            position: absolute;   
+         }
+
+	 .game-bottom-text {
+	    position: absolute;
+	    bottom: 10px;
+            font-size: 20px;
+            font-weight: bolder;
+	    color: white;
+	 }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            object-fit: contain;
+	    -webkit-user-select: none; /* Safari */        
+            -moz-user-select: none; /* Firefox */
+ 	    -ms-user-select: none; /* IE 10 and IE 11 */
+  	    user-select: none; /* Standard syntax */
+        }
+
+         .player-container {
+           justify-content: center;
+           display: flex;
+           align-items: center;
+         }
+
+         /* Стили для аудио-плеера */
+         input[type=range]::-webkit-slider-runnable-track {
+            height: 6px;
+            cursor: pointer;
+            animate: 0.1s;
+            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.3);
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            border-radius: 3px;
+        }
+
+        /* Стилизование ползунка */
+        input[type=range]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fe9a8b;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -5px;
+            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+        }
+
+        audio {
+            display: none;
+        }
+
+         /* Стили для кнопок */
+
+         .button-container {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+          }
+
+         button:active {
+            transform: scale(0.90);
+         }
+
+         button {
+            border: 0;
+            border-radius: 50%;
+            box-shadow: 7px 7px 7px 0 rgba(0,0,0,0.3);
+            cursor: pointer;
+            outline: none;
+            font-size: 18px;
+            font-weight: bolder;
+            transition: transform 0.2s;
+         }
+
+         #playPauseButton {
+            width: 80px;
+            height: 80px;
+            color: white;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            margin: 10px;
+         }
+
+         #playPauseButton:hover {
+            background: linear-gradient(25deg, #f96247 0%, #a80050 40%, #04000d 70%);
+         }
+
+          #nextButton:hover {
+            background: linear-gradient(25deg, #f96247 0%, #a80050 40%, #04000d 70%);
+         }
+
+         #nextButton {
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+            margin: 10px;
+         }
+
+        .menu-btn {
+            margin: 10px;
+            padding: 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 5px #23282f;
+            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
+        }
+
+        .menu-btn:hover {
+            background: linear-gradient(25deg, #f96247 0%, #a80050 40%, #04000d 70%);
+        }
+
+	#unity-fullscreen-button {
+	    display: none;
+        }
+
+         /* Cтили для разных экранов */
+
+         @media screen and (max-width: 800px) {
+
+	    .menu-btn {
+	        display: none;
+	    }
+
+	    .body-bg {
+	        background-size: 33%;
+	    }
+
+            .radio-container {
+                padding: 5px;
+                margin: 10px;
+                width: 90%;
+		height: 70%;
+               }
+
+            .player-container {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+
+            }
+
+            .game-container {
+                display: none;
+            }
+
+            #playPauseButton, #nextButton {
+                margin-bottom: 10px;
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+            }
+
+            input[type=range] {
+                display: none;
+                width: 50%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        @media screen and (max-height: 800px) {
+
+	  .menu-btn {
+	     display: none;
+	  }
+
+          .image-container {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: auto;
+             max-height: auto;
+          }
+
+          .image-container img {
+             width: auto; /* изображение никогда не будет больше контейнера */
+             max-height: 80%; /* высота автоматически меняется в зависимости от ширины изображения */
+             object-fit: contain; /* изображение будет масштабировано, чтобы поместиться в элемент, сохраняя соотношение сторон*/
+          }
+
+
+        }

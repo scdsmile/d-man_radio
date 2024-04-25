@@ -2,256 +2,38 @@
 <html lang="en">
 
 <head>
-   <!-- Мета-теги и заголовок -->
+    <!-- Мета-теги и заголовок -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>D-MAN Radio</title>
+    <title>D-MAN</title>
 
     <!-- Подключение сторонних CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="icon" href="/frontend/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="frontend/TemplateData/style.css">
-
-    <!-- Внутренние CSS стили -->
-    <style>
-         /* Общие стили для body и контейнеров */
-         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 95vh;
-            background: #3d444f;
-            font-family: Arial, sans-serif;
-            padding-top: 50px;
-         }
-
-         .radio-container {
-            width: 20%;
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 30px;
-            box-shadow: 0px 0px 30px 30px #23282f;
-            margin: 1px;
-            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
-            padding: 5px;
-	    position: absolute;
-        }
-
-         .game-container {
-            width: 80%;
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 30px;
-            box-shadow: 0px 0px 30px 30px #23282f;
-            margin: 1px;
-            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
-            padding: 5px;
-	    position: absolute;
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 100%;
-            height: auto;
-            overflow: hidden;
-        }
-
-        .image-container img {
-            max-width: 80%;
-            height: auto; 
-            object-fit: contain;
-        }
-
-         .player-container {
-           justify-content: center;
-           display: flex;
-           align-items: center;
-         }
-
-
-         /* Стили для аудио-плеера */
-         input[type=range]::-webkit-slider-runnable-track {
-            height: 6px;
-            cursor: pointer;
-            animate: 0.1s;
-            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.3);
-            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
-            border-radius: 3px;
-        }
-
-        /* Стилизование ползунка */
-        input[type=range]::-webkit-slider-thumb {
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            background: #fe9a8b;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -5px;
-            box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
-        }
-
-         audio {
-            display: none;
-        }
-
-
-         /* Стили для кнопок */
-         
-	  .button-container {
-
-	   justify-content: center;
-           display: flex;
-           align-items: center;
-
-	  }
-
-
-	 button:active {
-            transform: scale(0.95);
-         }
-
-         button {
-            border: 0;
-            border-radius: 50%;
-            box-shadow: 7px 7px 7px 0 rgba(0,0,0,0.3);
-            cursor: pointer;
-            outline: none;
-            font-size: 18px;
-            font-weight: bolder;
-            transition: transform 0.2s;
-         }
-
-         #playPauseButton {
-            width: 80px;
-            height: 80px;
-            color: #fff;
-            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
-            margin: 10px;
-         }
-
-         #nextButton {
-            width: 60px;
-            height: 60px;
-            color: #fff;
-            background: linear-gradient(25deg, #f96247 0%, #a80050 10%, #04000d 40%);
-            margin: 10px;
-         }
-
-         header {
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            position: fixed;
-           width: 100%;
-           top: 0;
-           left: 0;
-           background: #3d444f;
-           z-index: 9999;
-        }
-
-        .menu-btn {
-            margin: 0 10px;
-            padding: 5px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .menu-btn:hover {
-            background: #fe9a8b;
-        }
-
-         /* Cтили для  */
-
-         @media screen and (max-width: 1280px) {
-            .radio-container {
-                padding: 5px;
-                margin: 10px;
-                width: 90%;
-               }
-
-            .player-container {
-                justify-content: center;
-                display: flex;
-                align-items: center;
-		
-            }
-	    
-	    .game-container {
-
-	        display: none;
-
-	    }
-
-            #playPauseButton, #nextButton {
-
-                margin-bottom: 10px;
-                width: 60px;
-                height: 60px;
-                margin: 5px;
-            }
-
-            input[type=range] {
-                width: 50%;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-
-          input[type=range]::-webkit-slider-runnable-track {
-            /* display: none; */
-          }
-
-        /* Стилизование ползунка */
-          input[type=range]::-webkit-slider-thumb {
-            /* display: none; */
-          }
-
-	    
-        }
-
-        @media screen and (max-height: 600px) {
-
-          .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            max-height: auto;
-        }
-
-        .image-container img {
-            width: auto; /* изображение никогда не будет больше контейнера */
-            max-height: 80%; /* высота автоматически меняется в зависимости от ширины изображения */
-            object-fit: contain; /* изображение будет масштабировано, чтобы поместиться в элемент, сохраняя соотношение сторон*/
-        }
-
-
-        }
-
-    </style>
+	
+	<!-- Подключение стилей CSS -->
+    <link rel="icon" href="/frontend/favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" type="text/css" href="/frontend/styles.css">
 </head>
 
 <body>
+<div class="body-bg"></div>
+<div class="body-bg1"></div>
+<div class="body-bg2"></div>
+<div class="body-bg3"></div>
+<div class="body-bg4"></div>
+<div class="body-bg5"></div>
 
-<header>
-    <button id="radio-btn" class="menu-btn">D-Radio</button>
-    <button id="game-btn" class="menu-btn">D-Game</button>
-</header>
+     <header>
+	<button id="radio-btn" class="menu-btn">D-Radio</button>
+	<button id="game-btn" class="menu-btn">D-Game</button>
+     </header>
 
-     <!-- Содержимое сайта -->
+     <div class="Dimg Dimg1"></div>
+     <div class="Dimg Dimg2"></div>
+
      <div class="radio-container" id="radio-container">
-
         <div class="image-container">
             <img src="/media/images/d-man+d-logo.png" style="width:400px; height:auto;">
         </div>
@@ -263,39 +45,123 @@
         </div>
      </div>
 
-     <div class="game-container" id="game-container" style="visibility: hidden;">
-          <div id="unity-container" class="unity-desktop">
-	      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-	      <div id="unity-loading-bar">
-	        <div id="unity-logo"></div>
-	        <div id="unity-progress-bar-empty">
-	          <div id="unity-progress-bar-full"></div>
-	        </div>
-	      </div>
-	      <div id="unity-warning"> </div>
-	      <div id="unity-footer">
-	        <div id="unity-webgl-logo"></div>
-	        <div id="unity-fullscreen-button"></div>
-	        <div id="unity-build-title">D-Game</div>
-	      </div>         
+     <div class="game-container" id="game-container" style="visibility: hidden;"> 
+          <div id="unity-container" class="unity-desktop" style="visibility: hidden;">
+              <canvas id="unity-canvas" width=1248 height=780 tabindex="-1"></canvas>
+              <div id="unity-loading-bar">
+                <div id="unity-logo"></div>
+                <div id="unity-progress-bar-empty">
+                  <div id="unity-progress-bar-full"></div>
+                </div>
+              </div>
+              <div id="unity-warning"> </div>
+              <div id="unity-footer">
+                <div id="unity-fullscreen-button"></div>
+              </div>
           </div>
-     </div>
+          <div class="game-bottom-text">
+              D-TV
+          </div>
+      </div>
 
-     <!-- Внешний JavaScript файл -->
-     <script src="/frontend/audio.js"></script>
-     <script scr="/frontend/d-game.js"></script>
+    <script src="/frontend/audio.js"></script>
+    <script src="/frontend/header-menu.js"></script>
 
-     <Script>
-        document.getElementById('radio-btn').addEventListener('click', function() {
-            document.getElementById('radio-container').style.visibility = 'visible';
-            document.getElementById('game-container').style.visibility = 'hidden';
-        });
+    <script>
 
-        document.getElementById('game-btn').addEventListener('click', function() {
-            document.getElementById('radio-container').style.visibility = 'hidden';
-            document.getElementById('game-container').style.visibility = 'visible';
-        });
-     </Script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 1);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "/frontend/Build";
+      var loaderUrl = buildUrl + "/DgameWEB01C.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/DgameWEB01C.data.br",
+        frameworkUrl: buildUrl + "/DgameWEB01C.framework.js.br",
+        codeUrl: buildUrl + "/DgameWEB01C.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "D-Game",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
+
+      // By default, Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
+              }).catch((message) => {
+                alert(message);
+              });
+            };
+
+      document.body.appendChild(script);
+
+    </script>
 
 </body>
 </html>
